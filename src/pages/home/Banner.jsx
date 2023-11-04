@@ -2,6 +2,7 @@
 import { BsFillArrowDownCircleFill } from "react-icons/bs";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
+import Particle from './../../components/shared/Particle';
 
 
 const Banner = () => {
@@ -19,6 +20,7 @@ const Banner = () => {
         </motion.span>
       </Link>
       {/* particle effect */}
+      <Particle></Particle>
     </div>
   );
 };
