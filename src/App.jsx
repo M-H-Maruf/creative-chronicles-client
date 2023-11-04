@@ -4,7 +4,7 @@ import Navbar from './components/shared/Navbar';
 
 const App = () => {
   return (
-    <div className="font-mukta text-white/60 bg-black">
+    <div className="font-mukta text-white/60">
       <Navbar></Navbar>
       <Outlet></Outlet>
     </div>

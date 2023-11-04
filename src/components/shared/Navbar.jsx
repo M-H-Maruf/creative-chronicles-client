@@ -62,11 +62,11 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="w-full h-20 flex p-4 justify-between items-center relative">
+    <div className="w-full h-20 flex p-4 justify-between items-center relative bg-black/80 z-20">
       <motion.ul
         animate={isOpen ? "open" : "closed"}
         variants={variants}
-        className="p-4 -ml-4 pt-24 my-2 h-screen overflow-hidden shadow-2xl fixed -top-4 -m-20 z-30 bg-black/95 w-72"
+        className="p-4 -ml-4 pt-24 mt-4 h-screen overflow-hidden shadow-2xl fixed -top-4 -m-20 z-30 bg-black/95 w-72"
       >
         {navLinks}
       </motion.ul>
