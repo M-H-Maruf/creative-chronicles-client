@@ -62,7 +62,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="w-full h-20 flex p-4 justify-between items-center relative bg-black/80 z-20">
+    <div data-aos="fade-down" className="w-full h-20 flex p-4 justify-between items-center relative bg-black/80 z-20">
       <motion.ul
         animate={isOpen ? "open" : "closed"}
         variants={variants}
