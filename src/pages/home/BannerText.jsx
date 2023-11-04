@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-
+import { TypeAnimation } from "react-type-animation";
 
 const BannerText = () => {
   return (
@@ -11,7 +11,29 @@ const BannerText = () => {
       DELVE INTO A TAPESTRY OF TOPICS INCLUDING
       </h1>
       <hr />
-
+      <div data-aos="fade-left">
+        <TypeAnimation
+          sequence={[
+            "ART",
+            1000,
+            "DESIGN",
+            1000,
+            "LITERATURE",
+            1000,
+            "TECHNOLOGY",
+            1000,
+            "INNOVATION",
+            1000,
+            "TRAVEL",
+            1000,
+          ]}
+          wrapper="h1"
+          className="text-brand-primary font-teko tracking-normal opacity-100"
+          speed={50}
+          style={{ fontSize: "48px", display: "block", color:"#52e03595" }}
+          repeat={Infinity}
+        />
+      </div>
       <p
         data-aos="fade-up-left"
         className="w-80 text-white opacity-60 mt-4 font-medium text-center"
