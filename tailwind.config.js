@@ -5,7 +5,16 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    fontFamily: {
+      'teko': ['Teko', 'sans-serif'],
+      'mukta': ['Mukta', 'sans-serif'],
+      'orbitron': ['Orbitron', 'sans-serif'],
+    },
+    extend: {
+      colors: {
+        "blog-primary": "#52e03590",
+      },
+    },
   },
   plugins: [],
 }

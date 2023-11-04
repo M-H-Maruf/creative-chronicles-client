@@ -5,6 +5,7 @@ import AllBlogs from "../pages/all-blogs/AllBlogs";
 import FeaturedBlogs from "../pages/featured-blogs/FeaturedBlogs";
 import AddBlogs from "../pages/add-blogs/AddBlogs";
 import Wishlist from "../pages/wishlist/WishList";
+import Auth from "../components/auth/Auth";
 
 const routes = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const routes = createBrowserRouter([
       {
         path: "/wishlist",
         element: <Wishlist></Wishlist>,
+      },
+      {
+        path: "/auth",
+        element: <Auth></Auth>,
       },
     ],
   },
