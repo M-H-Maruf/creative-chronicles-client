@@ -1,4 +1,6 @@
 import { Background, Parallax } from "react-parallax";
+import Banner from './Banner';
+import BannerText from './BannerText';
 
 const Home = () => {
   return (
@@ -17,6 +19,8 @@ const Home = () => {
             />
           </Background>
           <div className="relative h-screen w-full flex flex-col justify-center items-center">
+            <Banner></Banner>
+            <BannerText></BannerText>
           </div>
         </Parallax>
       </div>
