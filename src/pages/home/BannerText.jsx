@@ -35,7 +35,7 @@ const BannerText = () => {
         />
       </div>
       <p
-        data-aos="fade-up-left"
+        data-aos="fade-up"
         className="w-80 text-white opacity-60 mt-4 font-medium text-center"
       >
        Welcome to Creative Chronicles, your sanctuary for boundless creativity. Here, we embrace artists, writers, designers, and visionaries. Dive into a world of art, literature, and innovation. Through insightful articles and a supportive community, we nurture your creative journey. Join us in celebrating the power of imagination and self-expression. Let's embark on this enriching voyage together!

@@ -2,6 +2,7 @@ import { Background, Parallax } from "react-parallax";
 import Banner from './Banner';
 import BannerText from './BannerText';
 import NewsLetter from './NewsLetter';
+import Testimonials from './Testimonials';
 
 const Home = () => {
   return (
@@ -26,7 +27,10 @@ const Home = () => {
         </Parallax>
       </div>
 
-      {/* newsletter section */}
+      {/* testimonials */}
+      <Testimonials></Testimonials>
+
+      {/* newsletter */}
       <NewsLetter></NewsLetter>
     </div>
   );
