@@ -12,7 +12,7 @@ const Banner = () => {
 
       <Link to="recent-products" spy={true} smooth={true}>
         <motion.span
-          className="z-10 absolute bottom-14 left-1/2 -translate-x-1/2 text-white/80 text-4xl hover:text-brand-primary"
+          className="z-10 absolute bottom-14 left-1/2 -translate-x-1/2 text-white/80 text-4xl hover:text-blog-primary"
           animate={{ y: [0, 10, 0] , x:[-18, -18, -18]}}
           transition={{ repeat: Infinity, duration: 2, type: "elastic" }}
         >

@@ -9,7 +9,7 @@ const NewsLetter = () => {
       data-aos="flip-right" className=" bg-black/80 bg-[url('https://i.postimg.cc/sgNF6ptt/retrosupply-j-Lw-VAUt-LOAQ-unsplash.jpg')] bg-cover bg-center bg-blend-darken shadow-2xl py-24 px-4 md:px-28 gap-4 rounded-lg w-full h-full flex flex-col justify-center items-center">
         <h1
           data-aos="fade-right"
-          className="aos-init aos-animate font-teko mb-6 font-bold text-brand-primary text-5xl aos-init aos-animate"
+          className="aos-init aos-animate font-teko mb-6 font-bold text-blog-primary text-5xl aos-init aos-animate"
         >
           NEWSLETTER
         </h1>

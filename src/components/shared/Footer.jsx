@@ -6,7 +6,7 @@ const Footer = () => {
     <div  data-aos="fade-up">
       <footer className="leading-5 font-semibold flex gap-10 justify-around items-center p-10 bg-[#0c0c0c] text-white/70">
         <aside className="flex flex-col gap-5 items-center justify-center">
-          <Link spy={true} smooth={true} to="Banner"><img className="h-24 cursor-pointer w-24 bg-brand-primary rounded-full" src="src/assets/icons/creative-chronicles-logo-transparent.png" alt="logo" /></Link>
+          <Link spy={true} smooth={true} to="Banner"><img className="h-24 cursor-pointer w-24 bg-blog-primary rounded-full" src="src/assets/icons/creative-chronicles-logo-transparent.png" alt="logo" /></Link>
           <p>
             CREATIVE CHRONICLES
             <br />

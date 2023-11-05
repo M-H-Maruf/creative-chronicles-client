@@ -28,7 +28,7 @@ const BannerText = () => {
             1000,
           ]}
           wrapper="h1"
-          className="text-brand-primary font-teko tracking-normal opacity-100"
+          className="text-blog-primary font-teko tracking-normal opacity-100"
           speed={50}
           style={{ fontSize: "48px", display: "block", color:"#52e03595" }}
           repeat={Infinity}

@@ -13,7 +13,7 @@ const Testimonials = () => {
           <div className="text-white text-center">
             <h1
               data-aos="fade-right"
-              className="aos-init aos-animate font-teko font-bold text-brand-primary text-5xl aos-init aos-animate"
+              className="aos-init aos-animate font-teko font-bold text-blog-primary text-5xl aos-init aos-animate"
             >
               TESTIMONIALS
             </h1>{" "}
@@ -29,22 +29,22 @@ const Testimonials = () => {
             <div data-aos="fade-right">
               <TabList>
                 <Tab>
-                  <h2 className="font-bold tracking-tighter text-brand-primary font-orbitron">
+                  <h2 className="font-bold tracking-tighter text-blog-primary font-orbitron">
                     Alice
                   </h2>
                 </Tab>
                 <Tab>
-                  <h2 className="font-bold tracking-tighter text-brand-primary font-orbitron">
+                  <h2 className="font-bold tracking-tighter text-blog-primary font-orbitron">
                     David
                   </h2>
                 </Tab>
                 <Tab>
-                  <h2 className="font-bold tracking-tighter text-brand-primary font-orbitron">
+                  <h2 className="font-bold tracking-tighter text-blog-primary font-orbitron">
                     Ella
                   </h2>
                 </Tab>
                 <Tab>
-                  <h2 className="font-bold tracking-tighter text-brand-primary font-orbitron">
+                  <h2 className="font-bold tracking-tighter text-blog-primary font-orbitron">
                     James
                   </h2>
                 </Tab>

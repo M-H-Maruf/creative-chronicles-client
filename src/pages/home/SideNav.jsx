@@ -23,12 +23,12 @@ const SideNav = () => {
       </div>
       <div className="tooltip tooltip-left tooltip-warning" data-tip="HOME">
         <Link spy={true} smooth={true} to="Banner">
-          <AiTwotoneHome className="text-2xl text-white/40 hover:text-brand-primary"></AiTwotoneHome>
+          <AiTwotoneHome className="text-2xl text-white/40 hover:text-blog-primary"></AiTwotoneHome>
         </Link>
       </div>
       <div className="tooltip tooltip-left tooltip-warning" data-tip="BRANDS">
         <Link spy={true} smooth={true} to="Brands">
-          <TbBrandStrava className="text-2xl text-white/40 hover:text-brand-primary"></TbBrandStrava>
+          <TbBrandStrava className="text-2xl text-white/40 hover:text-blog-primary"></TbBrandStrava>
         </Link>
       </div>
       <div
@@ -36,12 +36,12 @@ const SideNav = () => {
         data-tip="TESTIMONIALS"
       >
         <Link spy={true} smooth={true} to="Testimonials">
-          <FaNoteSticky className="text-2xl text-white/40 hover:text-brand-primary"></FaNoteSticky>
+          <FaNoteSticky className="text-2xl text-white/40 hover:text-blog-primary"></FaNoteSticky>
         </Link>
       </div>
       <div className="tooltip tooltip-left tooltip-warning" data-tip="DEALS">
         <Link spy={true} smooth={true} to="Deals">
-          <RiServiceFill className="text-2xl text-white/40 hover:text-brand-primary"></RiServiceFill>
+          <RiServiceFill className="text-2xl text-white/40 hover:text-blog-primary"></RiServiceFill>
         </Link>
       </div>
     </div>
