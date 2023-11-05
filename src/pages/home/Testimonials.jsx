@@ -55,7 +55,7 @@ const Testimonials = () => {
                 <TabPanel>
                   <h2
                     className="text-justify text-white h-48"
-                    data-aos="flip-up"
+                    data-aos="flip-left"
                   >
                     "The articles on Creative Chronicles have been a constant
                     source of inspiration for my creative projects. The diverse

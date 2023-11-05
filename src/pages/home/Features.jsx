@@ -38,7 +38,8 @@ const Features = () => {
     
 
   return (
-    <div id="features" className="py-6 flex flex-col justify-center items-center">
+          <div className="w-screen py-6 flex flex-col justify-center items-center relative">
+      <div className="h-full absolute w-full bg-black bg-opacity-80 flex justify-center items-center top-0"></div>
     <h1
       data-aos="fade-right"
       className="aos-init w-full my-6 lg:px-32 aos-animate text-center font-teko font-bold text-blog-primary text-5xl aos-init aos-animate mt-32"

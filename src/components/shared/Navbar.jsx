@@ -10,7 +10,7 @@ const Navbar = () => {
 
   // navbar routes
   const navLinks = (
-    <div className="text-white/60 flex flex-col lg:flex-row gap-5">
+    <div className="text-white/60 flex flex-col xl:flex-row gap-5">
       <NavLink
         to="/"
         className={({ isActive }) => (isActive ? activeLink : "text-white/60")}
