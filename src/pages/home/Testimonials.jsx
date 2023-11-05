@@ -3,8 +3,8 @@ import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 
 const Testimonials = () => {
   return (
-    <div className="w-screen flex justify-center items-center">
-      <div className="h-full w-full bg-black flex justify-center items-center  py-16">
+    <div className="w-full flex justify-center items-center">
+      <div className="h-full w-full bg-black flex justify-center items-center py-16">
         {" "}
         <div
           id="Testimonials"

@@ -11,7 +11,7 @@ const BannerText = () => {
       DELVE INTO A TAPESTRY OF TOPICS INCLUDING
       </h1>
       <hr />
-      <div data-aos="fade-left">
+      <div data-aos="fade-up">
         <TypeAnimation
           sequence={[
             "ART",
