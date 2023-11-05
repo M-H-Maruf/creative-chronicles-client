@@ -1,6 +1,7 @@
 import { Background, Parallax } from "react-parallax";
 import Banner from './Banner';
 import BannerText from './BannerText';
+import NewsLetter from './NewsLetter';
 
 const Home = () => {
   return (
@@ -24,6 +25,9 @@ const Home = () => {
           </div>
         </Parallax>
       </div>
+
+      {/* newsletter section */}
+      <NewsLetter></NewsLetter>
     </div>
   );
 };
