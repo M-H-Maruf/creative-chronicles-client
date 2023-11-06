@@ -2,6 +2,8 @@ import { useQuery } from "react-query";
 import axios from "axios";
 import { Box, Skeleton, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import Tilt from "react-parallax-tilt";
 
 const RecentBlogs = () => {
   const fetchRecentBlogs = async () => {
@@ -51,47 +53,49 @@ const RecentBlogs = () => {
       </h1>
       <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {data.map((blog) => (
-          <div
-            data-aos="flip-left"
-            className="bg-white/50 rounded-lg"
-            key={blog._id}
-          >
-            <img
-              src={blog.image}
-              alt={blog.title}
-              className="w-full h-64 object-cover rounded-t-lg"
-            />
-            <div className="p-6 pt-0">
-              {" "}
-              <h2 className="text-2xl text-white font-extrabold mb-2">
-                {blog.title}
-              </h2>
-              <p className="text-black mb-4">{blog.shortDescription}</p>
-              <div className="flex justify-between">
-                <span className="text-green-900 text-sm border rounded-lg p-1 px-2 border-green-900">
-                  {blog.category}
-                </span>
-                <span>
-                  {new Date(blog.timestamp).toLocaleDateString("en-GB")}
-                </span>
+          <div key={blog._id}>
+            <Tilt scale={1.05}>
+              <div data-aos="flip-left" className="bg-white/50 rounded-lg">
+                <img
+                  src={blog.image}
+                  alt={blog.title}
+                  className="w-full h-64 object-cover rounded-t-lg"
+                />
+                <div className="p-6 pt-0">
+                  {" "}
+                  <h2 className="text-2xl text-white font-extrabold mb-2">
+                    {blog.title}
+                  </h2>
+                  <p className="text-black mb-4">{blog.shortDescription}</p>
+                  <div className="flex justify-between">
+                    <span className="text-green-900 text-sm border rounded-lg p-1 px-2 border-green-900">
+                      {blog.category}
+                    </span>
+                    <span>
+                      {new Date(blog.timestamp).toLocaleDateString("en-GB")}
+                    </span>
+                  </div>
+                  <div className="mt-4">
+                    <Link to={`/blogs/${blog._id}`}>
+                      <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        className="px-4 py-2 bg-blue-800 text-white rounded mr-2"
+                      >
+                        Details
+                      </motion.button>
+                    </Link>
+                    <motion.button
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="px-4 py-2 bg-green-800 text-white rounded"
+                    >
+                      Add to Wishlist
+                    </motion.button>
+                  </div>
+                </div>
               </div>
-              <div className="mt-4">
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="px-4 py-2 bg-blue-800 text-white rounded mr-2"
-                >
-                  Details
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="px-4 py-2 bg-green-800 text-white rounded"
-                >
-                  Add to Wishlist
-                </motion.button>
-              </div>
-            </div>
+            </Tilt>
           </div>
         ))}
       </div>

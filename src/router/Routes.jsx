@@ -6,6 +6,8 @@ import FeaturedBlogs from "../pages/featured-blogs/FeaturedBlogs";
 import AddBlogs from "../pages/add-blogs/AddBlogs";
 import Wishlist from "../pages/wishlist/WishList";
 import Auth from "../components/auth/Auth";
+import BlogDetails from "../components/shared/BlogDetails";
+import UpdateBlogs from "../components/shared/UpdateBlogs";
 
 const routes = createBrowserRouter([
   {
@@ -17,16 +19,24 @@ const routes = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "/all-blogs",
+        path: "/blogs/all",
         element: <AllBlogs></AllBlogs>,
       },
       {
-        path: "/featured-blogs",
+        path: "/blogs/:_id",
+        element: <BlogDetails></BlogDetails>,
+      },
+      {
+        path: "/blogs/featured",
         element: <FeaturedBlogs></FeaturedBlogs>,
       },
       {
-        path: "/add-blogs",
+        path: "/blogs/add",
         element: <AddBlogs></AddBlogs>,
+      },
+      {
+        path: "/blogs/update/:_id",
+        element: <UpdateBlogs></UpdateBlogs>,
       },
       {
         path: "/wishlist",

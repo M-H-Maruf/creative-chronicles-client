@@ -47,7 +47,7 @@ const Navbar = () => {
         </motion.p>
       </NavLink>
       <NavLink
-        to="/all-blogs"
+        to="/blogs/all"
         className={({ isActive }) => (isActive ? activeLink : "text-white/60")}
       >
         <motion.p whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
@@ -55,7 +55,7 @@ const Navbar = () => {
         </motion.p>
       </NavLink>
       <NavLink
-        to="/featured-blogs"
+        to="/blogs/featured"
         className={({ isActive }) => (isActive ? activeLink : "text-white/60")}
       >
         <motion.p whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
@@ -63,7 +63,7 @@ const Navbar = () => {
         </motion.p>
       </NavLink>
       <NavLink
-        to="/add-blogs"
+        to="/blogs/add"
         className={({ isActive }) => (isActive ? activeLink : "text-white/60")}
       >
         <motion.p whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
@@ -91,7 +91,7 @@ const Navbar = () => {
   return (
     <div
       data-aos="fade-down"
-      className="w-full h-20 flex p-4 justify-between items-center relative bg-black/80 z-20"
+      className="w-full h-20 flex p-4 justify-between items-center relative bg-black z-20"
     >
       <motion.ul
         animate={isOpen ? "open" : "closed"}
@@ -116,7 +116,7 @@ const Navbar = () => {
         </div>
         <img
           className="h-full"
-          src="src/assets/icons/creative-chronicles-logo-transparent.png"
+          src="/creative-chronicles-logo-transparent.png"
           alt="creative chronicles logo"
         />
         <span className="hidden md:flex h-full w-1 bg-blog-primary/50 rounded-full"></span>
