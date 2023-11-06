@@ -23,7 +23,7 @@ const RecentBlogs = () => {
           data-aos="fade-right"
           className="aos-init aos-animate font-teko font-bold text-blog-primary text-center pb-10 text-5xl aos-init aos-animate"
         >
-          TESTIMONIALS
+          RECENT BLOGS
         </h1>
         <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {[1, 2, 3, 4, 5, 6].map((index) => (
@@ -106,7 +106,7 @@ const RecentBlogs = () => {
                 />
                 <div className="p-6 pt-0">
                   {" "}
-                  <h2 className="text-2xl text-white font-extrabold mb-2">
+                  <h2 className="text-2xl min-h-16 text-white font-extrabold mb-2">
                     {blog.title}
                   </h2>
                   <p className="text-black mb-4">{blog.shortDescription}</p>
