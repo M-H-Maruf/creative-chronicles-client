@@ -4,6 +4,7 @@ import BannerText from "./BannerText";
 import NewsLetter from "./NewsLetter";
 import Testimonials from "./Testimonials";
 import Features from "./Features";
+import RecentBlogs from './RecentBlogs';
 
 const Home = () => {
   return (
@@ -27,6 +28,9 @@ const Home = () => {
           </div>
         </Parallax>
       </div>
+
+      {/* recent blogs */}
+      <RecentBlogs></RecentBlogs>
 
       {/* features */}
       <div

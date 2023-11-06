@@ -4,11 +4,11 @@ import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 const Testimonials = () => {
   return (
     <div className="w-full flex justify-center items-center">
-      <div className="h-full w-full bg-black flex justify-center items-center py-16">
+      <div className="h-full w-full bg-black flex justify-center items-center">
         {" "}
         <div
           id="Testimonials"
-          className="max-w-xl h-fit flex justify-between items-center flex-col py-20 px-14"
+          className="max-w-xl h-fit flex justify-between items-center flex-col py-20 md:px-14"
         >
           <div className="text-white text-center">
             <h1
@@ -21,8 +21,8 @@ const Testimonials = () => {
               data-aos="fade-down"
               className="font-teko text-white tracking-normal text-xl font-semibold pt-4 mb-8"
             >
-              Don't Just Take Our Words For It. See What Our Past Customers Had
-              To Say About It.
+              Don't Just Take Our Words For It. See What Our Past Users Had
+              To Say About Us.
             </h2>
           </div>{" "}
           <Tabs colorScheme="green" variant="enclosed">
