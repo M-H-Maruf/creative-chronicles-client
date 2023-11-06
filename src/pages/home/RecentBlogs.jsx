@@ -89,10 +89,10 @@ const RecentBlogs = () => {
   return (
     <div className="bg-black p-8 md:p-16 flex flex-col justify-center items-center py-24">
       <h1
-        data-aos="fade-right"
+        data-aos="fade-up"
         className="aos-init aos-animate font-teko font-bold text-blog-primary text-center pb-10 text-5xl aos-init aos-animate"
       >
-        TESTIMONIALS
+        RECENT BLOGS
       </h1>
       <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {data.map((blog) => (
