@@ -1,17 +1,12 @@
-
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuthContext from "../../hooks/useAuthContext";
 
 const Login = () => {
-  const {
-    signInWithEmail,
-  } = useAuthContext();
-  
+  const { signInWithEmail } = useAuthContext();
 
   const navigate = useNavigate();
   const location = useLocation();
-
 
   const handleLogIn = (e) => {
     e.preventDefault();
@@ -31,7 +26,7 @@ const Login = () => {
       });
       return;
     }
-    
+
     if (!/[A-Z]/.test(password)) {
       Swal.fire({
         icon: "error",
@@ -63,26 +58,23 @@ const Login = () => {
           showConfirmButton: false,
           timer: 2500,
         });
-        
-        navigate(location?.state ? location.state : '/');
-        
+
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
-        let errorSignIn ='';
-        if (error.code == 'auth/invalid-login-credentials') {
-          errorSignIn = "Email or password doesn't match"
-        }
-        else {
+        let errorSignIn = "";
+        if (error.code == "auth/invalid-login-credentials") {
+          errorSignIn = "Email or password doesn't match";
+        } else {
           errorSignIn = error.code;
         }
         Swal.fire({
           icon: "error",
           title: "Error!",
-          text: "Oops! Something went wrong.\n"+ errorSignIn,
+          text: "Oops! Something went wrong.\n" + errorSignIn,
           showConfirmButton: false,
           timer: 2500,
         });
-        
       });
   };
   return (

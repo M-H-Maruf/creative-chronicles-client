@@ -67,11 +67,12 @@ const AuthProvider = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
+      user && setProfileImage(user.photoURL)
     });
     return () => {
       unSubscribe();
     };
-  }, []);
+  }, [user]);
 
   // providing info
   const authInfo = {

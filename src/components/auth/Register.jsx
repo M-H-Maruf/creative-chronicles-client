@@ -1,11 +1,8 @@
-
 import Swal from "sweetalert2";
 import useAuthContext from "../../hooks/useAuthContext";
 
-const Register = ({setTabIndex}) => {
-  const { createUserWithEmail, updateNameAndPhotoUrl } =
-  useAuthContext()
-
+const Register = ({ setTabIndex }) => {
+  const { createUserWithEmail, updateNameAndPhotoUrl } = useAuthContext();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -59,7 +56,7 @@ const Register = ({setTabIndex}) => {
           showConfirmButton: false,
           timer: 2500,
         });
-        setTabIndex(1)
+        setTabIndex(1);
       })
       .catch((error) => {
         Swal.fire({
