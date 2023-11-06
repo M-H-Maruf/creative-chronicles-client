@@ -4,8 +4,11 @@ import { Box, Skeleton, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Tilt from "react-parallax-tilt";
+import Swal from "sweetalert2";
+import useAuthContext from "../../hooks/useAuthContext";
 
 const RecentBlogs = () => {
+  const {user} = useAuthContext();
   const fetchRecentBlogs = async () => {
     const response = await axios.get("http://localhost:5000/blogs/recent");
     return response.data;
@@ -42,6 +45,46 @@ const RecentBlogs = () => {
   if (error) {
     return <Text>Error: {error.message}</Text>;
   }
+
+  
+  const handleAddToWishlist = (blog) => {
+    const { title, image, shortDescription, category, description } = blog;
+    const userEmail = user.email;
+    const newBlog = {
+      title, image, shortDescription, category, description, userEmail
+    };
+
+    axios.post(
+      "http://localhost:5000/wishlist",
+      JSON.stringify(newBlog),
+      {
+        headers: {
+          "Content-Type": "application/json",
+        }
+      }
+    )
+      .then((response) => {
+        if (response.data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "Blog Added To Wishlist Successfully!",
+            icon: "success",
+            confirmButtonText: "OK",
+          });
+        } else {
+          Swal.fire({
+            title: "Error!",
+            text: "Failed To Add Blog To Wishlist!",
+            icon: "error",
+            confirmButtonText: "OK",
+          });
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    
+  };
 
   return (
     <div className="bg-black p-8 md:p-16 flex flex-col justify-center items-center py-24">
@@ -88,6 +131,7 @@ const RecentBlogs = () => {
                     <motion.button
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
+                      onClick={() => handleAddToWishlist(blog)}
                       className="px-4 py-2 bg-green-800 text-white rounded"
                     >
                       Add to Wishlist
