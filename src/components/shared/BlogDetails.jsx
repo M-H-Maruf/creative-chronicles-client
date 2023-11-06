@@ -28,8 +28,6 @@ const BlogDetails = () => {
     return <div>No data available</div>;
   }
 
-  console.log(data);
-  console.log(data);
   return (
     <div className=" bg-black/80 bg-[url('https://i.postimg.cc/sgNF6ptt/retrosupply-j-Lw-VAUt-LOAQ-unsplash.jpg')] bg-cover bg-center bg-blend-darken text-white flex flex-col justify-center items-center tracking-normal text-justify">
       <div className="py-32 p-6 z-10">

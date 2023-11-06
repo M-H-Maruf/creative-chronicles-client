@@ -116,7 +116,7 @@ const Navbar = () => {
         </div>
         <img
           className="h-full"
-          src="/creative-chronicles-logo-transparent.png"
+          src="https://i.postimg.cc/7LwBS69V/creative-chronicles-logo-transparent.png"
           alt="creative chronicles logo"
         />
         <span className="hidden md:flex h-full w-1 bg-blog-primary/50 rounded-full"></span>
