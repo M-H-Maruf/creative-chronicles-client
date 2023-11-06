@@ -12,26 +12,27 @@ const RecentBlogs = () => {
   const { data, isLoading, error } = useQuery("recentBlogs", fetchRecentBlogs);
 
   if (isLoading) {
-    return (<div className="p-8 md:p-16 py-24">
+    return (
+      <div className="p-8 md:p-16 py-24">
         <h1
-        data-aos="fade-right"
-        className="aos-init aos-animate font-teko font-bold text-blog-primary text-center pb-10 text-5xl aos-init aos-animate"
-      >
-        TESTIMONIALS
-      </h1>
-      <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {[1, 2, 3, 4, 5, 6].map((index) => (
-          <Box key={index}>
-            <Skeleton height="200px" />
-            <Box py={2}>
-              <Skeleton height="20px" mb={2} />
-              <Skeleton height="20px" mb={2} />
-              <Skeleton height="20px" mb={2} />
-              <Skeleton height="20px" w="50%" />
+          data-aos="fade-right"
+          className="aos-init aos-animate font-teko font-bold text-blog-primary text-center pb-10 text-5xl aos-init aos-animate"
+        >
+          TESTIMONIALS
+        </h1>
+        <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {[1, 2, 3, 4, 5, 6].map((index) => (
+            <Box key={index}>
+              <Skeleton height="200px" />
+              <Box py={2}>
+                <Skeleton height="20px" mb={2} />
+                <Skeleton height="20px" mb={2} />
+                <Skeleton height="20px" mb={2} />
+                <Skeleton height="20px" w="50%" />
+              </Box>
             </Box>
-          </Box>
-        ))}
-      </div>
+          ))}
+        </div>
       </div>
     );
   }
@@ -67,7 +68,9 @@ const RecentBlogs = () => {
               </h2>
               <p className="text-black mb-4">{blog.shortDescription}</p>
               <div className="flex justify-between">
-                <span className="text-green-900 text-sm border rounded-lg p-1 px-2 border-green-900">{blog.category}</span>
+                <span className="text-green-900 text-sm border rounded-lg p-1 px-2 border-green-900">
+                  {blog.category}
+                </span>
                 <span>
                   {new Date(blog.timestamp).toLocaleDateString("en-GB")}
                 </span>
