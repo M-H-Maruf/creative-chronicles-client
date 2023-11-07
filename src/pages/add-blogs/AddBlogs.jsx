@@ -28,6 +28,7 @@ const AddBlogs = () => {
     const descriptionLength = description.length;
     const userEmail = user.email;
     const userImage = user.photoURL;
+    const userName = user.displayName;
     const timestamp = new Date().getTime().toString();
 
     const newBlog = {
@@ -39,6 +40,7 @@ const AddBlogs = () => {
       timestamp,
       userEmail,
       userImage,
+      userName,
       descriptionLength
     };
 

@@ -49,40 +49,51 @@ const RecentBlogs = () => {
   
   const handleAddToWishlist = (blog) => {
     const { title, image, shortDescription, category, description } = blog;
-    const userEmail = user.email;
-    const newBlog = {
-      title, image, shortDescription, category, description, userEmail
-    };
-
-    axios.post(
-      "http://localhost:5000/wishlist",
-      JSON.stringify(newBlog),
-      {
-        headers: {
-          "Content-Type": "application/json",
+    const userEmail = user?.email;
+    if (userEmail){
+      const newBlog = {
+        title, image, shortDescription, category, description, userEmail
+      };
+  
+      axios.post(
+        "http://localhost:5000/wishlist",
+        JSON.stringify(newBlog),
+        {
+          headers: {
+            "Content-Type": "application/json",
+          }
         }
-      }
-    )
-      .then((response) => {
-        if (response.data?.insertedId) {
-          Swal.fire({
-            title: "Success!",
-            text: "Blog Added To Wishlist Successfully!",
-            icon: "success",
-            confirmButtonText: "OK",
-          });
-        } else {
-          Swal.fire({
-            title: "Error!",
-            text: "Failed To Add Blog To Wishlist!",
-            icon: "error",
-            confirmButtonText: "OK",
-          });
-        }
-      })
-      .catch((error) => {
-        console.error('Error:', error);
+      )
+        .then((response) => {
+          if (response.data?.insertedId) {
+            Swal.fire({
+              title: "Success!",
+              text: "Blog Added To Wishlist Successfully!",
+              icon: "success",
+              confirmButtonText: "OK",
+            });
+          } else {
+            Swal.fire({
+              title: "Error!",
+              text: "Failed To Add Blog To Wishlist!",
+              icon: "error",
+              confirmButtonText: "OK",
+            });
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    }
+    else {
+      Swal.fire({
+        title: "Error!",
+        text: "Please log in first!",
+        icon: "error",
+        confirmButtonText: "OK",
       });
+    }
+
     
   };
 

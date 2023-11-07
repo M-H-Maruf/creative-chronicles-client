@@ -8,10 +8,13 @@ import Wishlist from "../pages/wishlist/WishList";
 import Auth from "../components/auth/Auth";
 import BlogDetails from "../components/shared/BlogDetails";
 import UpdateBlogs from "../components/shared/UpdateBlogs";
+import ErrorPage from "./../components/shared/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
 
 const routes = createBrowserRouter([
   {
     path: "/",
+    errorElement: <ErrorPage></ErrorPage>,
     element: <App></App>,
     children: [
       {
@@ -20,27 +23,51 @@ const routes = createBrowserRouter([
       },
       {
         path: "/blogs/all",
-        element: <AllBlogs></AllBlogs>,
+        element: (
+          <PrivateRoute>
+            <AllBlogs></AllBlogs>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/blogs/:_id",
-        element: <BlogDetails></BlogDetails>,
+        element: (
+          <PrivateRoute>
+            <BlogDetails></BlogDetails>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/blogs/featured",
-        element: <FeaturedBlogs></FeaturedBlogs>,
+        element: (
+          <PrivateRoute>
+            <FeaturedBlogs></FeaturedBlogs>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/blogs/add",
-        element: <AddBlogs></AddBlogs>,
+        element: (
+          <PrivateRoute>
+            <AddBlogs></AddBlogs>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/blogs/update/:_id",
-        element: <UpdateBlogs></UpdateBlogs>,
+        element: (
+          <PrivateRoute>
+            <UpdateBlogs></UpdateBlogs>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/wishlist",
-        element: <Wishlist></Wishlist>,
+        element: (
+          <PrivateRoute>
+            <Wishlist></Wishlist>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/auth",
