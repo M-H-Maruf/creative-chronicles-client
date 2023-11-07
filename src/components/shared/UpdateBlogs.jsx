@@ -9,7 +9,7 @@ const UpdateBlogs = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const { image, title, shortDescription, description } = blog;
   useEffect(() => {
-    fetch(`http://localhost:5000/blogs/${_id}`, { credentials: "include" })
+    fetch(`https://creative-chronicles-server.vercel.app/blogs/${_id}`, { credentials: "include" })
       .then((res) => res.json())
       .then((data) => setBlog(data));
     setSelectedCategory(blog.category);
@@ -46,7 +46,7 @@ const UpdateBlogs = () => {
       timestamp,
     };
 
-    fetch(`http://localhost:5000/blogs/${_id}`, {
+    fetch(`https://creative-chronicles-server.vercel.app/blogs/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

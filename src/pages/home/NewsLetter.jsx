@@ -16,7 +16,7 @@ const NewsLetter = () => {
     };
 
     try {
-      const response = await axios.post("http://localhost:5000/newsletters/subscribe",
+      const response = await axios.post("https://creative-chronicles-server.vercel.app/newsletters/subscribe",
         JSON.stringify(newEmail), 
         {
           headers: {

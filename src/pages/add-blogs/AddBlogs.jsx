@@ -42,7 +42,7 @@ const AddBlogs = () => {
       descriptionLength
     };
 
-    fetch("http://localhost:5000/blogs", {
+    fetch("https://creative-chronicles-server.vercel.app/blogs", {
       method: "POST",
       credentials: 'include',
       headers: {

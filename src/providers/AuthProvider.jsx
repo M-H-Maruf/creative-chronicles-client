@@ -70,7 +70,7 @@ const AuthProvider = ({ children }) => {
       if (currentUser) {
         axios
           .post(
-            "http://localhost:5000/jwt",
+            "https://creative-chronicles-server.vercel.app/jwt",
             loggedUser,
             { withCredentials: true }
           )

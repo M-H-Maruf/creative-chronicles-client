@@ -18,7 +18,7 @@ const AllBlogs = () => {
   const [displayData, setDisplayData] = useState([]);
   const fetchAllBlogs = async () => {
     const response = await axios.get(
-      `http://localhost:5000/blogs?category=${selectedCategory}`, {withCredentials: true}
+      `https://creative-chronicles-server.vercel.app/blogs?category=${selectedCategory}`, {withCredentials: true}
     );
     return response.data;
   };
@@ -45,7 +45,7 @@ const AllBlogs = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `http://localhost:5000/blogs?category=${selectedCategory}`, {withCredentials: true},
+        `https://creative-chronicles-server.vercel.app/blogs?category=${selectedCategory}`, {withCredentials: true},
       );
       setDisplayData(response.data);
     };
@@ -138,7 +138,7 @@ const AllBlogs = () => {
     };
 
     axios
-      .post("http://localhost:5000/wishlist",  newBlog, {
+      .post("https://creative-chronicles-server.vercel.app/wishlist",  newBlog, {
         headers: {
           "Content-Type": "application/json",
         },

@@ -32,7 +32,7 @@ const BlogDetails = () => {
     };
 
     axios
-      .post("http://localhost:5000/comments", newComment,{withCredentials: true}, {
+      .post("https://creative-chronicles-server.vercel.app/comments", newComment,{withCredentials: true}, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -62,14 +62,14 @@ const BlogDetails = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/blogs/${_id}`,{ credentials: 'include',})
+    fetch(`https://creative-chronicles-server.vercel.app/blogs/${_id}`,{ credentials: 'include',})
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [_id]);
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/comments/${_id}`, {withCredentials: true},)
+      .get(`https://creative-chronicles-server.vercel.app/comments/${_id}`, {withCredentials: true},)
       .then((response) => {
         setComments(response.data);
       })

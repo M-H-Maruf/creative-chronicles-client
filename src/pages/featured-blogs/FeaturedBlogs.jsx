@@ -41,7 +41,7 @@ const FeaturedBlogs = () => {
   }, 'dark');
 
   useEffect(() => {
-    fetch("http://localhost:5000/blogsFeatured", { credentials: "include" })
+    fetch("https://creative-chronicles-server.vercel.app/blogsFeatured", { credentials: "include" })
       .then((res) => res.json())
       .then((data) => setBlogs(data));
   }, []);

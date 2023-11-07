@@ -10,7 +10,7 @@ import useAuthContext from "../../hooks/useAuthContext";
 const RecentBlogs = () => {
   const { user } = useAuthContext();
   const fetchRecentBlogs = async () => {
-    const response = await axios.get("http://localhost:5000/blogs/recent", {
+    const response = await axios.get("https://creative-chronicles-server.vercel.app/blogs/recent", {
       withCredentials: true,
     });
     return response.data;
@@ -64,7 +64,7 @@ const RecentBlogs = () => {
       };
 
       axios
-        .post("http://localhost:5000/wishlist", newBlog, {
+        .post("https://creative-chronicles-server.vercel.app/wishlist", newBlog, {
           headers: {
             "Content-Type": "application/json",
           },

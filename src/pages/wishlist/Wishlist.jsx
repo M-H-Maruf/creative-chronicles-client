@@ -11,7 +11,7 @@ const Wishlist = () => {
   const [data, setData] = useState();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/wishlist?email=${user?.email}`, {
+    fetch(`https://creative-chronicles-server.vercel.app/wishlist?email=${user?.email}`, {
       credentials: "include",
     })
       .then((res) => res.json())
@@ -29,20 +29,20 @@ const Wishlist = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/wishlist/${_id}`, {
+        fetch(`https://creative-chronicles-server.vercel.app/wishlist/${_id}`, {
           method: "DELETE",
           credentials: "include",
         })
           .then((res) => res.json())
           .then((data) => {
-            if (data.deletedCount > 0) {
+            if (data?.deletedCount > 0) {
               Swal.fire({
                 title: "Success!",
                 text: "Item Deleted Successfully!",
                 icon: "success",
                 confirmButtonText: "OK",
               });
-              const remaining = data.filter(blog => blog._id != _id);
+              const remaining = data?.filter(blog => blog._id != _id);
               setData(remaining);
             } else {
               Swal.fire({
