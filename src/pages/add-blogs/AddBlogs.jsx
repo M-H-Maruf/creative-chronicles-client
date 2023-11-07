@@ -25,7 +25,9 @@ const AddBlogs = () => {
     const category = selectedCategory;
     const shortDescription = form.shortDescription.value;
     const description = form.description.value;
+    const descriptionLength = description.length;
     const userEmail = user.email;
+    const userImage = user.photoURL;
     const timestamp = new Date().getTime().toString();
 
     const newBlog = {
@@ -36,6 +38,8 @@ const AddBlogs = () => {
       description,
       timestamp,
       userEmail,
+      userImage,
+      descriptionLength
     };
 
     fetch("http://localhost:5000/blogs", {

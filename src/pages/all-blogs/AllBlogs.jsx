@@ -102,7 +102,7 @@ const AllBlogs = () => {
             </div>
           </div>
         </div>
-        <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
           {[1, 2, 3, 4, 5, 6].map((index) => (
             <Box key={index}>
               <Skeleton height="200px" />
@@ -204,11 +204,11 @@ const AllBlogs = () => {
         </div>
       </div>
 
-      <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 z-20">
+      <div className="grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 z-20">
         {displayData.map((blog) => (
-          <div key={blog?._id}>
-            <Tilt tiltEnable={false} scale={1.1} transitionSpeed={2500}>
-              <div data-aos="flip-left" className="bg-white/50 rounded-lg">
+          <div className="h-full" key={blog?._id}>
+            <Tilt className="h-full" tiltEnable={false} scale={1.1} transitionSpeed={2500}>
+              <div data-aos="flip-left" className="bg-white/50 rounded-lg h-full">
                 <img
                   src={blog?.image}
                   alt={blog?.title}
@@ -244,7 +244,7 @@ const AllBlogs = () => {
                       onClick={() => handleAddToWishlist(blog)}
                       className="px-4 py-2 bg-green-800 text-white rounded"
                     >
-                      Add to Wishlist
+                      Add To Wishlist
                     </motion.button>
                   </div>
                 </div>

@@ -25,7 +25,7 @@ const RecentBlogs = () => {
         >
           RECENT BLOGS
         </h1>
-        <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
           {[1, 2, 3, 4, 5, 6].map((index) => (
             <Box key={index}>
               <Skeleton height="200px" />
@@ -94,11 +94,11 @@ const RecentBlogs = () => {
       >
         RECENT BLOGS
       </h1>
-      <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
         {data?.map((blog) => (
-          <div key={blog?._id}>
-            <Tilt scale={1.05}>
-              <div data-aos="flip-left" className="bg-white/50 rounded-lg">
+          <div className="h-full" key={blog?._id}>
+            <Tilt className="h-full" scale={1.05}>
+              <div data-aos="flip-left" className="bg-white/50 h-full rounded-lg">
                 <img
                   src={blog?.image}
                   alt={blog?.title}
@@ -134,7 +134,7 @@ const RecentBlogs = () => {
                       onClick={() => handleAddToWishlist(blog)}
                       className="px-4 py-2 bg-green-800 text-white rounded"
                     >
-                      Add to Wishlist
+                      Add To Wishlist
                     </motion.button>
                   </div>
                 </div>
