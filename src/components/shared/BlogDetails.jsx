@@ -11,20 +11,23 @@ const BlogDetails = () => {
   const { _id } = useParams();
   const { user } = useAuthContext();
   const [data, setData] = useState([]);
+  const [comments, setComments] = useState([]);
 
   const handleComment = (e) => {
     e.preventDefault();
-    const { title} = data;
+    const { _id: blogId } = data;
     const userEmail = user.email;
     const userImage = user.photoURL;
+    const userName = user.displayName;
     const comment = e.target.comment.value;
-    const timestamp = new Date().toISOString();
+    const timestamp = new Date().getTime().toString();
     const newComment = {
-      title,
+      blogId,
       userImage,
       userEmail,
       comment,
-      timestamp
+      timestamp,
+      userName,
     };
 
     axios
@@ -35,6 +38,7 @@ const BlogDetails = () => {
       })
       .then((response) => {
         if (response.data?.insertedId) {
+          e.target.comment.value = "";
           Swal.fire({
             title: "Success!",
             text: "Comment Added Successfully!",
@@ -59,6 +63,17 @@ const BlogDetails = () => {
     fetch(`http://localhost:5000/blogs/${_id}`)
       .then((res) => res.json())
       .then((data) => setData(data));
+  }, [_id]);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/comments/${_id}`)
+      .then((response) => {
+        setComments(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }, [_id]);
 
   return (
@@ -99,18 +114,23 @@ const BlogDetails = () => {
                     <h2 className="font-bold text-sm text-white/60 tracking-wide mb-1">
                       Short Description: {data?.shortDescription}
                     </h2>
-                    <h2 className="font-bold text-sm text-white/60 tracking-wide">
+                    <h2 className="font-bold text-sm text-white/60 tracking-wide ">
                       Details: {data?.description}
                     </h2>
                     <div className="flex flex-col gap-4">
-                      <Link
-                        to={`/blogs/update/${data?._id}`}
-                        className="font-bold w-fit"
-                      >
-                        <button className="btn border-2 bg-transparent font-bold my-4 border-blog-primary text-blog-primary hover:bg-blog-primary hover:border-blog-primary hover:text-white">
-                          <AiOutlineEdit className="text-3xl"></AiOutlineEdit>
-                        </button>
-                      </Link>
+                      {user?.email == data?.userEmail ?  (
+                        <Link
+                          to={`/blogs/update/${data?._id}`}
+                          className="font-bold w-fit"
+                        >
+                          <button className="btn border-2 bg-transparent font-bold my-4 border-blog-primary text-blog-primary hover:bg-blog-primary hover:border-blog-primary hover:text-white">
+                            <AiOutlineEdit className="text-3xl"></AiOutlineEdit>
+                          </button>
+                        </Link>
+                      ):(
+                        <div className="my-4"></div>
+                      )}
+
                       <form onSubmit={handleComment} className="flex flex-col">
                         {user?.email == data?.userEmail ? (
                           <textarea
@@ -118,23 +138,55 @@ const BlogDetails = () => {
                             placeholder="You can not comment in your own blog."
                             disabled
                           ></textarea>
-                        ) : (
+                        ) : (<div className="flex flex-col">
                           <textarea
                             name="comment"
                             className="textarea text-black focus:border-blog-primary focus:outline-blog-primary"
                             placeholder="Write your comment..."
                           ></textarea>
-                        )}
-                        <input
+                          <input
                           className="btn border-2 bg-transparent font-bold my-4 border-blog-primary text-blog-primary hover:bg-blog-primary hover:border-blog-primary hover:text-white"
                           type="submit"
-                        />
+                        /></div>
+                        )}
+                        
                       </form>
                     </div>
                   </div>
                 </div>
               </Tilt>
             </div>
+          </div>
+        </div>
+        <div className="p-4 md:p-8 lg:p-16">
+          <h1
+            data-aos="fade-down"
+            className="text-2xl text-blog-primary font-black font-orbitron mb-8 text-left mx-auto"
+          >
+            COMMENTS
+          </h1>
+          <div data-aos="fade-down" className="mb-20">
+            {comments.map((comment, idx) => (
+              <div key={idx} className="chat chat-start">
+                {" "}
+                <div className="chat-image avatar">
+                  <div className="w-10 rounded-full">
+                    <img src={`${comment.userImage}`} />
+                  </div>
+                </div>
+                <div className="chat-header flex flex-col">
+                  <h6>{comment.userName}</h6>
+                  <time className="text-xs opacity-50">
+                    {new Date(parseInt(comment?.timestamp)).toLocaleDateString(
+                      "en-GB"
+                    )}
+                  </time>
+                </div>
+                <div className="chat-bubble chat-bubble-success bg-blog-primary">
+                  {comment.comment}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
