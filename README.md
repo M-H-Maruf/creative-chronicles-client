@@ -17,6 +17,7 @@ This website offers
 - Smooth scrolling with react scroll.
 - Beautiful transitions on scroll with AOS.
 - Dynamic website using react router.
+- Newsletter section that adds the provided email to the database.
 - Extra testimonials and features section in home.
 - Remove from wishlist dynamically from database and ui in real time.
 - Used tanstack query for better state management.
