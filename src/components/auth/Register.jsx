@@ -46,6 +46,17 @@ const Register = ({ setTabIndex }) => {
       return;
     }
 
+    if (!/\d/.test(password)) {
+      Swal.fire({
+        icon: "error",
+        position: "bottom-end",
+        showConfirmButton: false,
+        timer: 2500,
+        text: "Password must contain at least one numeric character",
+      });
+      return;
+    }
+
     createUserWithEmail(email, password)
       .then(() => {
         updateNameAndPhotoUrl(name, photo);
