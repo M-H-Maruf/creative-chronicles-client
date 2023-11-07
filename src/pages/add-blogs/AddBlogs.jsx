@@ -6,10 +6,12 @@ import useAuthContext from "../../hooks/useAuthContext";
 const AddBlogs = () => {
   const [selectedCategory, setSelectedCategory] = useState("NONE");
   const { user } = useAuthContext();
+
   const handleCategoryChange = (e) => {
     const newValue = e.target.value;
     setSelectedCategory(newValue);
   };
+
   useEffect(() => {
     console.log(selectedCategory);
   }, [selectedCategory]);
@@ -67,6 +69,7 @@ const AddBlogs = () => {
         }
       });
   };
+
   return (
     <div className=" bg-black/80 bg-[url('https://i.postimg.cc/sgNF6ptt/retrosupply-j-Lw-VAUt-LOAQ-unsplash.jpg')] bg-cover bg-center bg-blend-darken text-white flex flex-col justify-center items-center tracking-normal text-justify">
       <div className="py-32 p-6 z-10">

@@ -87,7 +87,7 @@ const RecentBlogs = () => {
   };
 
   return (
-    <div className="bg-black p-8 md:p-16 flex flex-col justify-center items-center py-24">
+    <div id="recent-blogs" className="bg-black p-8 md:p-16 flex flex-col justify-center items-center py-24">
       <h1
         data-aos="fade-up"
         className="aos-init aos-animate font-teko font-bold text-blog-primary text-center pb-10 text-5xl aos-init aos-animate"
