@@ -9,6 +9,7 @@ import { useState } from "react";
 const Wishlist = () => {
   const { user } = useAuthContext();
   const [data, setData] = useState();
+  const [deletedCount, setDeletedCount] = useState(0);
 
   useEffect(() => {
     fetch(`https://creative-chronicles-server.vercel.app/wishlist?email=${user?.email}`, {
@@ -16,7 +17,7 @@ const Wishlist = () => {
     })
       .then((res) => res.json())
       .then((data) => setData(data));
-  }, [user?.email, data]);
+  }, [user?.email, deletedCount]);
 
   const handleDelete = (_id) => {
     Swal.fire({
@@ -36,6 +37,7 @@ const Wishlist = () => {
           .then((res) => res.json())
           .then((data) => {
             if (data?.deletedCount > 0) {
+              setDeletedCount(deletedCount+1);
               Swal.fire({
                 title: "Success!",
                 text: "Item Deleted Successfully!",
