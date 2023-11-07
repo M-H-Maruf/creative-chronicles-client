@@ -30,8 +30,7 @@ const FeaturedBlogs = () => {
   ];
   createTheme('solarized', {
     text: {
-      primary: '#338323',
-      secondary: '#2aa198',
+      primary: '#fff90',
     },
     background: {
       default: '#00000050',

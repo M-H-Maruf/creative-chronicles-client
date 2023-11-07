@@ -12,6 +12,7 @@ const BlogDetails = () => {
   const { user } = useAuthContext();
   const [data, setData] = useState([]);
   const [comments, setComments] = useState([]);
+  const [commentId, setCommentId] = useState([]);
 
   const handleComment = (e) => {
     e.preventDefault();
@@ -31,13 +32,14 @@ const BlogDetails = () => {
     };
 
     axios
-      .post("http://localhost:5000/comments", {withCredentials: true}, JSON.stringify(newComment), {
+      .post("http://localhost:5000/comments", newComment,{withCredentials: true}, {
         headers: {
           "Content-Type": "application/json",
         },
       })
       .then((response) => {
         if (response.data?.insertedId) {
+          setCommentId(response.data?.insertedId);
           e.target.comment.value = "";
           Swal.fire({
             title: "Success!",
@@ -74,7 +76,7 @@ const BlogDetails = () => {
       .catch((error) => {
         console.error(error);
       });
-  }, [_id]);
+  }, [_id, commentId]);
 
   return (
     <div className=" bg-black/80 bg-[url('https://i.postimg.cc/sgNF6ptt/retrosupply-j-Lw-VAUt-LOAQ-unsplash.jpg')] bg-cover bg-center bg-blend-darken text-white flex flex-col justify-center items-center tracking-normal text-justify">

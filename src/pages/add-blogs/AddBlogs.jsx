@@ -1,6 +1,6 @@
 import Swal from "sweetalert2";
 import Particle from "../../components/shared/Particle";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useAuthContext from "../../hooks/useAuthContext";
 
 const AddBlogs = () => {
@@ -12,9 +12,7 @@ const AddBlogs = () => {
     setSelectedCategory(newValue);
   };
 
-  useEffect(() => {
-    console.log(selectedCategory);
-  }, [selectedCategory]);
+
   const handleAddBlog = (event) => {
     event.preventDefault();
 

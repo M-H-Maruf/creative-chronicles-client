@@ -126,6 +126,7 @@ const AllBlogs = () => {
   const handleAddToWishlist = (blog) => {
     const { title, image, shortDescription, category, description } = blog;
     const userEmail = user.email;
+    const blogId = blog._id;
     const newBlog = {
       title,
       image,
@@ -133,10 +134,11 @@ const AllBlogs = () => {
       category,
       description,
       userEmail,
+      blogId
     };
 
     axios
-      .post("http://localhost:5000/wishlist", {withCredentials: true}, JSON.stringify(newBlog), {
+      .post("http://localhost:5000/wishlist",  newBlog, {
         headers: {
           "Content-Type": "application/json",
         },

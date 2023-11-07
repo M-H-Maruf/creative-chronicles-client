@@ -16,7 +16,7 @@ const NewsLetter = () => {
     };
 
     try {
-      const response = await axios.post("http://localhost:5000/newsletters/subscribe", {withCredentials: true}, 
+      const response = await axios.post("http://localhost:5000/newsletters/subscribe",
         JSON.stringify(newEmail), 
         {
           headers: {

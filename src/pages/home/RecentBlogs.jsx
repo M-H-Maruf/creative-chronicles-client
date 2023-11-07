@@ -8,9 +8,11 @@ import Swal from "sweetalert2";
 import useAuthContext from "../../hooks/useAuthContext";
 
 const RecentBlogs = () => {
-  const {user} = useAuthContext();
+  const { user } = useAuthContext();
   const fetchRecentBlogs = async () => {
-    const response = await axios.get("http://localhost:5000/blogs/recent", {withCredentials: true},);
+    const response = await axios.get("http://localhost:5000/blogs/recent", {
+      withCredentials: true,
+    });
     return response.data;
   };
 
@@ -46,24 +48,27 @@ const RecentBlogs = () => {
     return <Text>Error: {error.message}</Text>;
   }
 
-  
   const handleAddToWishlist = (blog) => {
     const { title, image, shortDescription, category, description } = blog;
     const userEmail = user?.email;
-    if (userEmail){
+    if (userEmail) {
+      const blogId = blog._id;
       const newBlog = {
-        title, image, shortDescription, category, description, userEmail
+        title,
+        image,
+        shortDescription,
+        category,
+        description,
+        userEmail,
+        blogId,
       };
-  
-      axios.post(
-        "http://localhost:5000/wishlist", {withCredentials: true},
-        JSON.stringify(newBlog),
-        {
+
+      axios
+        .post("http://localhost:5000/wishlist", newBlog, {
           headers: {
             "Content-Type": "application/json",
-          }
-        }
-      )
+          },
+        })
         .then((response) => {
           if (response.data?.insertedId) {
             Swal.fire({
@@ -82,10 +87,9 @@ const RecentBlogs = () => {
           }
         })
         .catch((error) => {
-          console.error('Error:', error);
+          console.error("Error:", error);
         });
-    }
-    else {
+    } else {
       Swal.fire({
         title: "Error!",
         text: "Please log in first!",
@@ -93,12 +97,13 @@ const RecentBlogs = () => {
         confirmButtonText: "OK",
       });
     }
-
-    
   };
 
   return (
-    <div id="recent-blogs" className="bg-black p-8 md:p-16 flex flex-col justify-center items-center py-24">
+    <div
+      id="recent-blogs"
+      className="bg-black p-8 md:p-16 flex flex-col justify-center items-center py-24"
+    >
       <h1
         data-aos="fade-up"
         className="aos-init aos-animate font-teko font-bold text-blog-primary text-center pb-10 text-5xl aos-init aos-animate"
@@ -109,7 +114,10 @@ const RecentBlogs = () => {
         {data?.map((blog) => (
           <div className="h-full" key={blog?._id}>
             <Tilt className="h-full" scale={1.05}>
-              <div data-aos="flip-left" className="bg-white/50 h-full rounded-lg">
+              <div
+                data-aos="flip-left"
+                className="bg-white/50 h-full rounded-lg"
+              >
                 <img
                   src={blog?.image}
                   alt={blog?.title}
