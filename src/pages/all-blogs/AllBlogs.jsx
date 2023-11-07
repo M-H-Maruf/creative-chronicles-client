@@ -18,7 +18,7 @@ const AllBlogs = () => {
   const [displayData, setDisplayData] = useState([]);
   const fetchAllBlogs = async () => {
     const response = await axios.get(
-      `http://localhost:5000/blogs?category=${selectedCategory}`
+      `http://localhost:5000/blogs?category=${selectedCategory}`, {withCredentials: true}
     );
     return response.data;
   };
@@ -45,7 +45,7 @@ const AllBlogs = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `http://localhost:5000/blogs?category=${selectedCategory}`
+        `http://localhost:5000/blogs?category=${selectedCategory}`, {withCredentials: true},
       );
       setDisplayData(response.data);
     };
@@ -136,7 +136,7 @@ const AllBlogs = () => {
     };
 
     axios
-      .post("http://localhost:5000/wishlist", JSON.stringify(newBlog), {
+      .post("http://localhost:5000/wishlist", {withCredentials: true}, JSON.stringify(newBlog), {
         headers: {
           "Content-Type": "application/json",
         },

@@ -10,7 +10,7 @@ import useAuthContext from "../../hooks/useAuthContext";
 const RecentBlogs = () => {
   const {user} = useAuthContext();
   const fetchRecentBlogs = async () => {
-    const response = await axios.get("http://localhost:5000/blogs/recent");
+    const response = await axios.get("http://localhost:5000/blogs/recent", {withCredentials: true},);
     return response.data;
   };
 
@@ -56,7 +56,7 @@ const RecentBlogs = () => {
       };
   
       axios.post(
-        "http://localhost:5000/wishlist",
+        "http://localhost:5000/wishlist", {withCredentials: true},
         JSON.stringify(newBlog),
         {
           headers: {

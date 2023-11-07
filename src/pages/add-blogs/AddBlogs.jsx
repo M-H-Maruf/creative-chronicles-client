@@ -46,6 +46,7 @@ const AddBlogs = () => {
 
     fetch("http://localhost:5000/blogs", {
       method: "POST",
+      credentials: 'include',
       headers: {
         "content-type": "application/json",
       },

@@ -9,7 +9,7 @@ const UpdateBlogs = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const { image, title, shortDescription, description } = blog;
   useEffect(() => {
-    fetch(`http://localhost:5000/blogs/${_id}`)
+    fetch(`http://localhost:5000/blogs/${_id}`, { credentials: "include" })
       .then((res) => res.json())
       .then((data) => setBlog(data));
     setSelectedCategory(blog.category);
@@ -51,6 +51,7 @@ const UpdateBlogs = () => {
       headers: {
         "content-type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify(updatedBlog),
     })
       .then((res) => res.json())

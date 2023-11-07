@@ -13,6 +13,7 @@ import {
 } from "firebase/auth";
 import { useState } from "react";
 import { PropTypes } from "prop-types";
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 
@@ -65,9 +66,22 @@ const AuthProvider = ({ children }) => {
   // monitoring user state
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+      const userEmail = currentUser?.email || user?.email;
+      const loggedUser = { email: userEmail };
       setUser(currentUser);
       setLoading(false);
-      user && setProfileImage(user.photoURL)
+      if (currentUser) {
+        axios
+          .post(
+            "http://localhost:5000/jwt",
+            loggedUser,
+            { withCredentials: true }
+          )
+          .then((res) => {
+            console.log("token response", res.data);
+          });
+          setProfileImage(user.photoURL);
+      }
     });
     return () => {
       unSubscribe();

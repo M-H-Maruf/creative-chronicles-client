@@ -6,7 +6,7 @@ import useAuthContext from "../../hooks/useAuthContext";
 import Swal from "sweetalert2";
 
 const Navbar = () => {
-  const { user, logOut, profileImage } = useAuthContext();
+  const { user, logOut } = useAuthContext();
   const handleSignOut = () => {
     logOut()
       .then((result) => {
@@ -150,7 +150,7 @@ const Navbar = () => {
                 <label tabIndex={0} className="">
                   <img
                     className="h-12 rounded-full w-12 object-cover object-center"
-                    src={profileImage}
+                    src={`${user?.photoURL?user.photoURL:"https://i.ibb.co/MVzMp2j/istockphoto-1307140504-612x612.jpg"}`}
                     alt="profile picture"
                   />
                 </label>

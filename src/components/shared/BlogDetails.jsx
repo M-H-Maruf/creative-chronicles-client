@@ -31,7 +31,7 @@ const BlogDetails = () => {
     };
 
     axios
-      .post("http://localhost:5000/comments", JSON.stringify(newComment), {
+      .post("http://localhost:5000/comments", {withCredentials: true}, JSON.stringify(newComment), {
         headers: {
           "Content-Type": "application/json",
         },
@@ -60,14 +60,14 @@ const BlogDetails = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/blogs/${_id}`)
+    fetch(`http://localhost:5000/blogs/${_id}`,{ credentials: 'include',})
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [_id]);
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/comments/${_id}`)
+      .get(`http://localhost:5000/comments/${_id}`, {withCredentials: true},)
       .then((response) => {
         setComments(response.data);
       })
