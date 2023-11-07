@@ -63,7 +63,7 @@ const AllBlogs = () => {
 
   if (isLoading) {
     return (
-      <div className="p-8 md:p-16 py-24">
+      <div className=" bg-black/80 bg-[url('https://i.postimg.cc/sgNF6ptt/retrosupply-j-Lw-VAUt-LOAQ-unsplash.jpg')] bg-cover bg-center bg-blend-darken p-8 md:p-16 py-24">
         <h1
           data-aos="fade-right"
           className="aos-init aos-animate z-20 font-teko font-bold text-blog-primary text-center pb-10 text-5xl aos-init aos-animate"
@@ -142,7 +142,7 @@ const AllBlogs = () => {
         },
       })
       .then((response) => {
-        if (response.data.insertedId) {
+        if (response.data?.insertedId) {
           Swal.fire({
             title: "Success!",
             text: "Blog Added To Wishlist Successfully!",
@@ -164,7 +164,7 @@ const AllBlogs = () => {
   };
 
   return (
-    <div className="bg-black p-8 md:p-16 flex flex-col justify-center items-center py-24">
+    <div className=" bg-black/80 bg-[url('https://i.postimg.cc/sgNF6ptt/retrosupply-j-Lw-VAUt-LOAQ-unsplash.jpg')] bg-cover bg-center bg-blend-darken  p-8 md:p-16 flex flex-col justify-center items-center py-24">
       <h1
         data-aos="fade-right"
         className="aos-init aos-animate z-20 font-teko font-bold text-blog-primary text-center pb-10 text-5xl aos-init aos-animate"
@@ -206,30 +206,30 @@ const AllBlogs = () => {
 
       <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 z-20">
         {displayData.map((blog) => (
-          <div key={blog._id}>
+          <div key={blog?._id}>
             <Tilt tiltEnable={false} scale={1.1} transitionSpeed={2500}>
               <div data-aos="flip-left" className="bg-white/50 rounded-lg">
                 <img
-                  src={blog.image}
-                  alt={blog.title}
+                  src={blog?.image}
+                  alt={blog?.title}
                   className="w-full h-64 object-cover rounded-t-lg"
                 />
                 <div className="p-6 pt-0">
                   {" "}
                   <h2 className="text-2xl min-h-16 text-white font-extrabold mb-2">
-                    {blog.title}
+                    {blog?.title}
                   </h2>
-                  <p className="text-black mb-4">{blog.shortDescription}</p>
+                  <p className="text-black mb-4">{blog?.shortDescription}</p>
                   <div className="flex justify-between">
                     <span className="text-green-900 text-sm border rounded-lg p-1 px-2 border-green-900">
-                      {blog.category}
+                      {blog?.category}
                     </span>
                     <span>
-                      {new Date(blog.timestamp).toLocaleDateString("en-GB")}
+                      {new Date(blog?.timestamp).toLocaleDateString("en-GB")}
                     </span>
                   </div>
                   <div className="mt-4">
-                    <Link to={`/blogs/${blog._id}`}>
+                    <Link to={`/blogs/${blog?._id}`}>
                       <motion.button
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}

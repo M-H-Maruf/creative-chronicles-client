@@ -64,7 +64,7 @@ const RecentBlogs = () => {
       }
     )
       .then((response) => {
-        if (response.data.insertedId) {
+        if (response.data?.insertedId) {
           Swal.fire({
             title: "Success!",
             text: "Blog Added To Wishlist Successfully!",
@@ -95,31 +95,31 @@ const RecentBlogs = () => {
         RECENT BLOGS
       </h1>
       <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {data.map((blog) => (
-          <div key={blog._id}>
+        {data?.map((blog) => (
+          <div key={blog?._id}>
             <Tilt scale={1.05}>
               <div data-aos="flip-left" className="bg-white/50 rounded-lg">
                 <img
-                  src={blog.image}
-                  alt={blog.title}
+                  src={blog?.image}
+                  alt={blog?.title}
                   className="w-full h-64 object-cover rounded-t-lg"
                 />
                 <div className="p-6 pt-0">
                   {" "}
                   <h2 className="text-2xl min-h-16 text-white font-extrabold mb-2">
-                    {blog.title}
+                    {blog?.title}
                   </h2>
-                  <p className="text-black mb-4">{blog.shortDescription}</p>
+                  <p className="text-black mb-4">{blog?.shortDescription}</p>
                   <div className="flex justify-between">
                     <span className="text-green-900 text-sm border rounded-lg p-1 px-2 border-green-900">
-                      {blog.category}
+                      {blog?.category}
                     </span>
                     <span>
-                      {new Date(blog.timestamp).toLocaleDateString("en-GB")}
+                      {new Date(blog?.timestamp).toLocaleDateString("en-GB")}
                     </span>
                   </div>
                   <div className="mt-4">
-                    <Link to={`/blogs/${blog._id}`}>
+                    <Link to={`/blogs/${blog?._id}`}>
                       <motion.button
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
