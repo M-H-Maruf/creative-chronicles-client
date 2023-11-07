@@ -23,9 +23,6 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [profileImage, setProfileImage] = useState(
-    "https://i.ibb.co/MVzMp2j/istockphoto-1307140504-612x612.jpg"
-  );
   const [loading, setLoading] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -80,7 +77,6 @@ const AuthProvider = ({ children }) => {
           .then((res) => {
             console.log("token response", res.data);
           });
-          setProfileImage(user.photoURL);
       }
     });
     return () => {
@@ -96,8 +92,6 @@ const AuthProvider = ({ children }) => {
     updateNameAndPhotoUrl,
     signInWithGoogle,
     signInWithEmail,
-    profileImage,
-    setProfileImage,
     logOut,
     isDarkMode,
     setIsDarkMode,
