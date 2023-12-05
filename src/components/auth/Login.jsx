@@ -83,7 +83,7 @@ const Login = () => {
         <div className="grid justify-center grid-cols-1 items-center gap-6 my-6">
           <div className="form-control">
             <label className="input-group">
-              <span className="bg-blog-primary w-44">email</span>
+              <span className="bg-blog-primary w-44">Email</span>
               <input
                 name="email"
                 type="email"

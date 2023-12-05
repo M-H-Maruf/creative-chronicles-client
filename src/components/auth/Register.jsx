@@ -107,7 +107,7 @@ const Register = ({ setTabIndex }) => {
         </div>
         <div className="form-control">
           <label className="input-group">
-            <span className="bg-blog-primary w-44">email</span>
+            <span className="bg-blog-primary w-44">Email</span>
             <input
               name="email"
               type="email"
